@@ -17,5 +17,18 @@ SCOPE = "user-read-playback-state,user-modify-playback-state,playlist-read-priva
 #Spotify Authorization 
 spotify = sp.Spotify(auth_manager = SpotifyOAuth(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, redirect_uri = REDIRECT, scope = SCOPE))
 
-#Testing Authorization
+"""Testing Authorization
 spotify.start_playback(device_id = DEVICE_ID, uris = ['spotify:track:45vW6Apg3QwawKzBi03rgD'])
+"""
+
+#Reading Playlist Data by grabbing track name, album name, and artist name
+PLAYLIST_ID = "6nT8YtsENHvC3PKvSAtc9m"
+FIELDS = "tracks.items(track(name,artists(name),album(name)))"
+data = spotify.playlist(PLAYLIST_ID, FIELDS)
+
+print("Indexing just by tracks")
+print(data["tracks"])
+
+#At this point, can now start iterating over the songs in playlist
+print("\nIndexing by tracks and items")
+print(data["tracks"]["items"])
