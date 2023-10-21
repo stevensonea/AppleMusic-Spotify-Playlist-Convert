@@ -24,11 +24,18 @@ spotify.start_playback(device_id = DEVICE_ID, uris = ['spotify:track:45vW6Apg3Qw
 #Reading Playlist Data by grabbing track name, album name, and artist name
 PLAYLIST_ID = "6nT8YtsENHvC3PKvSAtc9m"
 FIELDS = "tracks.items(track(name,artists(name),album(name)))"
-data = spotify.playlist(PLAYLIST_ID, FIELDS)
+data = spotify.playlist(PLAYLIST_ID, FIELDS)["tracks"]["items"]
+#print(data)
 
+"""
 print("Indexing just by tracks")
 print(data["tracks"])
 
 #At this point, can now start iterating over the songs in playlist
 print("\nIndexing by tracks and items")
-print(data["tracks"]["items"])
+data["tracks"]["items"]
+"""
+# Loop prints in format "SONGNAME by ARTIST on ALBUM"
+for playlistEntry in data:
+    print(playlistEntry["track"]["name"] + " by " + playlistEntry["track"]["artists"][0]["name"] + " on " + playlistEntry["track"]["album"]["name"])
+    
