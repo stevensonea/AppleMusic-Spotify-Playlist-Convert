@@ -38,4 +38,11 @@ data["tracks"]["items"]
 # Loop prints in format "SONGNAME by ARTIST on ALBUM"
 for playlistEntry in data:
     print(playlistEntry["track"]["name"] + " by " + playlistEntry["track"]["artists"][0]["name"] + " on " + playlistEntry["track"]["album"]["name"])
-    
+
+
+
+#Creating playlist and adding songs to playlist
+USER_ID = spotify.me()["id"]
+PLAYLIST_NAME = "Test Playlist for Converter"
+createdPlaylist = spotify.user_playlist_create(USER_ID, PLAYLIST_NAME)
+
