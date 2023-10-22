@@ -47,7 +47,7 @@ PLAYLIST_NAME = "Test Playlist for Converter"
 #createdPlaylist = spotify.user_playlist_create(USER_ID, "PLAYLIST_NAME")
 
 #Searching for a song
-SEARCH_PARAMETER = "track%Congratulations%"
+SEARCH_PARAMETER = "track%3ACongratulations%2520artist%3APost%2520Malone"
 songQuery = spotify.search(SEARCH_PARAMETER, 50)["tracks"]["items"]
 
 for song in songQuery:
