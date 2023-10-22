@@ -36,13 +36,19 @@ print("\nIndexing by tracks and items")
 data["tracks"]["items"]
 """
 # Loop prints in format "SONGNAME by ARTIST on ALBUM"
-for playlistEntry in data:
-    print(playlistEntry["track"]["name"] + " by " + playlistEntry["track"]["artists"][0]["name"] + " on " + playlistEntry["track"]["album"]["name"])
+#for playlistEntry in data:
+ #   print(playlistEntry["track"]["name"] + " by " + playlistEntry["track"]["artists"][0]["name"] + " on " + playlistEntry["track"]["album"]["name"])
 
 
 
 #Creating playlist and adding songs to playlist
 USER_ID = spotify.me()["id"]
 PLAYLIST_NAME = "Test Playlist for Converter"
-createdPlaylist = spotify.user_playlist_create(USER_ID, PLAYLIST_NAME)
+#createdPlaylist = spotify.user_playlist_create(USER_ID, "PLAYLIST_NAME")
 
+#Searching for a song
+SEARCH_PARAMETER = "track%Congratulations%"
+songQuery = spotify.search(SEARCH_PARAMETER, 50)["tracks"]["items"]
+
+for song in songQuery:
+    print(song["name"] + " by " + song["artists"][0]["name"])
