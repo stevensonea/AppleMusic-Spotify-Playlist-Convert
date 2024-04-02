@@ -8,9 +8,9 @@ import spotipy as sp
 from spotipy.oauth2 import SpotifyOAuth
 
 #Inforamtion for my Spotify account and windows machine
-DEVICE_ID = "d7390bb1fd59b6ee0811700a4ee5be4c53b0e032"
-CLIENT_ID = "aacef9dd894042cc88b52aba5aa1e9d6"
-CLIENT_SECRET = "515d356ac5e6465b857628c155201bff"
+DEVICE_ID = ""
+CLIENT_ID = ""
+CLIENT_SECRET = ""
 REDIRECT = "http://localhost:8080"
 SCOPE = "user-read-playback-state,user-modify-playback-state,playlist-read-private,playlist-modify-private,playlist-modify-public"
 
@@ -22,7 +22,7 @@ spotify.start_playback(device_id = DEVICE_ID, uris = ['spotify:track:45vW6Apg3Qw
 """
 
 #Reading Playlist Data by grabbing track name, album name, and artist name
-PLAYLIST_ID = "6nT8YtsENHvC3PKvSAtc9m"
+PLAYLIST_ID = ""
 FIELDS = "tracks.items(track(name,artists(name),album(name)))"
 data = spotify.playlist(PLAYLIST_ID, FIELDS)["tracks"]["items"]
 #print(data)
